@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Open Real Estate Listing Schema",
+  "$id": "https://example.com/product.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "number"
+    },
+    "guid": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "propertyType": {
+      "type": "string"
+    }
+  }
+}

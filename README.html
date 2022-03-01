@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Open Real Estate Listing Schema</title>
+</head>
+<body>
+
+    <h1 id="open-real-estate-listing-schema">Open Real Estate Listing Schema</h1>
+<h2 id="an-open-scheme-for-the-publication-of-real-estate-advertisements">An open scheme for the publication of real estate advertisements</h2>
+<p>This document defines a data structure for the publication of real estate advertisements, taking into account the following criteria:</p>
+<ul>
+<li>Cover as many types of advertisements as possible.</li>
+<li>Being able to be transferred on multiple platforms.</li>
+<li>Be easily understandable.</li>
+</ul>
+<h2 id="motivation">Motivation</h2>
+<p>The aim of this project is to facilitate the interoperability of real estate listing data.</p>
+<h2 id="version-history">Version history</h2>
+<ul>
+<li>1.0</li>
+</ul>
+<h2 id="definition">Definition</h2>
+<p>The schema has been defined using the <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> interchange format and camelCase convention.
+All fields are optional, although it is highly recommended to fill in the following fields:</p>
+<ul>
+<li>version</li>
+<li>guid</li>
+<li>country</li>
+<li>propertyType</li>
+</ul>
+<h2 id="schema">Schema</h2>
+<pre><code class="language-json">{
+  &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,
+  &quot;type&quot;: &quot;object&quot;,
+  &quot;properties&quot;: {
+    &quot;version&quot;: {
+      &quot;type&quot;: &quot;number&quot;
+    },
+    &quot;guid&quot;: {
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;country&quot;: {
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;propertyType&quot;: {
+      &quot;type&quot;: &quot;string&quot;
+    }
+  }
+}
+</code></pre>
+<h2 id="license">License</h2>
+<p>MIT</p>
+
+
+</body>
+</html>
