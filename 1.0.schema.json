@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://raw.githubusercontent.com/techjb/Open-Real-Estate-Listing-Schema/master/1.0.schema.json",
   "title": "Open Real Estate Listing Schema",
   "description": "An open schema for the publication of real estate advertisements",
-  "$id": "https://raw.githubusercontent.com/techjb/Open-Real-Estate-Listing-Schema/master/1.0.schema.json",
   "type": "object",
   "properties": {
     "version": {
@@ -69,7 +69,7 @@
         "format": "uri"
       }
     },
-    "media": {
+    "otherMedia": {
       "description": "Urls of other media",
       "type": "array",
       "items": {
@@ -78,7 +78,15 @@
       }
     },
     "price": {
-      "description": "Property type",
+      "description": "Property price",
+      "type": "number"
+    },
+    "priceMin": {
+      "description": "Minimum demand price",
+      "type": "number"
+    },
+    "priceMax": {
+      "description": "Maximum demand price",
       "type": "number"
     },
     "currency": {
@@ -92,6 +100,11 @@
     "language": {
       "description": "ISO 639-1 language code for description",
       "type": "string"
+    },
+    "url": {
+      "description": "Listing url",
+      "type": "string",
+      "format": "uri"
     }
   }
 }
