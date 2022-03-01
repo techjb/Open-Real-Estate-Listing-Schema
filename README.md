@@ -4,7 +4,8 @@
 This document defines a data structure for the publication of real estate advertisements, taking into account the following criteria:
 - Cover as many types of advertisements as possible.
 - Being able to be transferred on multiple platforms.
-- Be easily understandable.
+- Easily understandable.
+- Valid for both supply and demand.
 
 ## Motivation
 The aim of this project is to facilitate the interoperability of real estate listing data.
@@ -15,7 +16,7 @@ The aim of this project is to facilitate the interoperability of real estate lis
 
 ## Definition
 
-The schema has been defined using the [JSON](https://en.wikipedia.org/wiki/JSON) interchange format and camelCase convention.
+The schema has been defined using the [JSON](https://en.wikipedia.org/wiki/JSON) interchange format and `camelCase` convention.
 All fields are optional, although it is highly recommended to fill in the following fields:
 - version
 - guid
