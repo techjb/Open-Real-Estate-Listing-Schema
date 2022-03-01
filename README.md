@@ -1,5 +1,5 @@
 # Open Real Estate Listing Schema
-## An open scheme for the publication of real estate advertisements
+## An open schema for the publication of real estate advertisements
 
 This document defines a data structure for the publication of real estate advertisements, taking into account the following criteria:
 - Cover as many types of advertisements as possible.

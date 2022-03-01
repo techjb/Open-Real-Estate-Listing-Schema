@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Open Real Estate Listing Schema",
+  "description": "An open schema for the publication of real estate advertisements",
   "$id": "https://example.com/product.schema.json",
   "type": "object",
   "properties": {
