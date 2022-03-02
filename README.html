@@ -10,32 +10,39 @@
 <p>This document defines a data structure for the publication of real estate advertisements, taking into account the following criteria:</p>
 <ul>
 <li>Cover as many types of advertisements as possible.</li>
-<li>Being able to be transferred on multiple platforms.</li>
-<li>Easily understandable.</li>
+<li>Transfer data between platforms.</li>
+<li>Be understandable.</li>
 <li>Valid for both supply and demand.</li>
+<li>Multilingual.</li>
+<li>Multipurpose.</li>
 </ul>
 <h2 id="motivation">Motivation</h2>
-<p>The aim of this project is to facilitate the interoperability of real estate listing data.</p>
+<ul>
+<li>Facilitate the interoperability of real estate listing data.</li>
+<li>Define a data structure for a decentralised global real estate marketplace.</li>
+</ul>
 <h2 id="version-history">Version history</h2>
 <ul>
 <li>1.0</li>
 </ul>
 <h2 id="definition">Definition</h2>
-<p>The schema has been defined using the <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> interchange format and <code>camelCase</code> convention.
-All fields are optional, although it is highly recommended to fill in the following fields:</p>
+<p>The schema has been defined using the <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> interchange format and <code>camelCase</code> convention.</p>
+<p>All properties are optional, although it is highly recommended to fill in:</p>
 <ul>
 <li>version</li>
 <li>guid</li>
 <li>country</li>
 <li>propertyType</li>
 </ul>
+<h2 id="privacy">Privacy</h2>
+<p>Contact information can be hidden by filling in the <code>contactUrl</code> property only.</p>
 <h2 id="schema">Schema</h2>
 <p>Version 1.0</p>
 <pre><code class="language-json">{
   &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,
+  &quot;$id&quot;: &quot;https://raw.githubusercontent.com/techjb/Open-Real-Estate-Listing-Schema/master/1.0.schema.json&quot;,
   &quot;title&quot;: &quot;Open Real Estate Listing Schema&quot;,
   &quot;description&quot;: &quot;An open schema for the publication of real estate advertisements&quot;,
-  &quot;$id&quot;: &quot;https://raw.githubusercontent.com/techjb/Open-Real-Estate-Listing-Schema/master/1.0.schema.json&quot;,
   &quot;type&quot;: &quot;object&quot;,
   &quot;properties&quot;: {
     &quot;version&quot;: {
@@ -51,14 +58,10 @@ All fields are optional, although it is highly recommended to fill in the follow
       &quot;type&quot;: &quot;string&quot;,
       &quot;format&quot;: &quot;date-time&quot;
     },
-    &quot;removeDate&quot;: {
-      &quot;description&quot;: &quot;Date when it should be removed&quot;,
+    &quot;unlistingDate&quot;: {
+      &quot;description&quot;: &quot;Date of unlisting&quot;,
       &quot;type&quot;: &quot;string&quot;,
       &quot;format&quot;: &quot;date-time&quot;
-    },
-    &quot;country&quot;: {
-      &quot;description&quot;: &quot;ISO 3166 property country code&quot;,
-      &quot;type&quot;: &quot;string&quot;
     },
     &quot;propertyType&quot;: {
       &quot;description&quot;: &quot;Type of property&quot;,
@@ -71,63 +74,188 @@ All fields are optional, although it is highly recommended to fill in the follow
       &quot;enum&quot;: [ &quot;buy&quot;, &quot;sell&quot;, &quot;rent&quot;, &quot;share&quot;, &quot;auction&quot; ]
     },
     &quot;images&quot;: {
-      &quot;description&quot;: &quot;Urls of the images&quot;,
-      &quot;type&quot;: &quot;array&quot;,
-      &quot;items&quot;: {
-        &quot;type&quot;: &quot;string&quot;,
-        &quot;format&quot;: &quot;uri&quot;
-      }
+      &quot;$ref&quot;: &quot;#/definitions/urls&quot;,
+      &quot;description&quot;: &quot;Urls of the images&quot;
     },
     &quot;thumbnails&quot;: {
-      &quot;description&quot;: &quot;Urls of the thumbnails&quot;,
-      &quot;type&quot;: &quot;array&quot;,
-      &quot;items&quot;: {
-        &quot;type&quot;: &quot;string&quot;,
-        &quot;format&quot;: &quot;uri&quot;
-      }
+      &quot;$ref&quot;: &quot;#/definitions/urls&quot;,
+      &quot;description&quot;: &quot;Urls of the thumbnails&quot;
     },
     &quot;videos&quot;: {
-      &quot;description&quot;: &quot;Urls of the videos&quot;,
-      &quot;type&quot;: &quot;array&quot;,
-      &quot;items&quot;: {
-        &quot;type&quot;: &quot;string&quot;,
-        &quot;format&quot;: &quot;uri&quot;
-      }
+      &quot;$ref&quot;: &quot;#/definitions/urls&quot;,
+      &quot;description&quot;: &quot;Urls of the videos&quot;
     },
     &quot;floorPlans&quot;: {
-      &quot;description&quot;: &quot;Urls of the floor plans&quot;,
+      &quot;$ref&quot;: &quot;#/definitions/urls&quot;,
+      &quot;description&quot;: &quot;Urls of the floor plans&quot;
+    },
+    &quot;otherMedia&quot;: {
+      &quot;$ref&quot;: &quot;#/definitions/urls&quot;,
+      &quot;description&quot;: &quot;Urls of the other media&quot;
+    },
+    &quot;price&quot;: {
+      &quot;$ref&quot;: &quot;#/definitions/price&quot;,
+      &quot;description&quot;: &quot;Property price&quot;
+    },
+    &quot;priceMin&quot;: {
+      &quot;$ref&quot;: &quot;#/definitions/price&quot;,
+      &quot;description&quot;: &quot;Minimum demand price&quot;
+    },
+    &quot;priceMax&quot;: {
+      &quot;$ref&quot;: &quot;#/definitions/price&quot;,
+      &quot;description&quot;: &quot;Maximum demand price&quot;
+    },
+    &quot;descriptions&quot;: {
+      &quot;$ref&quot;: &quot;#/definitions/descriptions&quot;,
+      &quot;description&quot;: &quot;Property descriptions&quot;
+    },
+    &quot;url&quot;: {
+      &quot;description&quot;: &quot;Listing url&quot;,
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;format&quot;: &quot;uri&quot;
+    },
+    &quot;dataSourceName&quot;: {
+      &quot;description&quot;: &quot;Data source name&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;contactName&quot;: {
+      &quot;description&quot;: &quot;Contact name&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;contactPhone&quot;: {
+      &quot;description&quot;: &quot;Contact phone&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;contactEmail&quot;: {
+      &quot;description&quot;: &quot;Contact email&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;contactUrl&quot;: {
+      &quot;description&quot;: &quot;Contact url&quot;,
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;format&quot;: &quot;uri&quot;
+    },
+    &quot;latitude&quot;: {
+      &quot;description&quot;: &quot;Property latitude in decimal degrees&quot;,
+      &quot;type&quot;: &quot;number&quot;
+    },
+    &quot;longitude&quot;: {
+      &quot;description&quot;: &quot;Property longitude in decimal degrees&quot;,
+      &quot;type&quot;: &quot;number&quot;
+    },
+    &quot;address&quot;: {
+      &quot;description&quot;: &quot;Formated address&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;postalCode&quot;: {
+      &quot;description&quot;: &quot;Postal code&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;state&quot;: {
+      &quot;description&quot;: &quot;State code&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;country&quot;: {
+      &quot;description&quot;: &quot;ISO 3166 country code&quot;,
+      &quot;type&quot;: &quot;string&quot;
+    },
+    &quot;constructionSize&quot;: {
+      &quot;$ref&quot;: &quot;#/definitions/size&quot;,
+      &quot;description&quot;: &quot;Size of constuction&quot;
+    },
+    &quot;constructionYear&quot;: {
+      &quot;description&quot;: &quot;Year of construction&quot;,
+      &quot;type&quot;: &quot;integer&quot;
+    },
+    &quot;landSize&quot;: {
+      &quot;$ref&quot;: &quot;#/definitions/size&quot;,
+      &quot;description&quot;: &quot;Land size&quot;
+    },
+    &quot;floors&quot;: {
+      &quot;description&quot;: &quot;Number of floors&quot;,
+      &quot;type&quot;: &quot;integer&quot;
+    },
+    &quot;rooms&quot;: {
+      &quot;description&quot;: &quot;Number of rooms&quot;,
+      &quot;type&quot;: &quot;integer&quot;
+    },
+    &quot;bathrooms&quot;: {
+      &quot;description&quot;: &quot;Number of bathrooms&quot;,
+      &quot;type&quot;: &quot;integer&quot;
+    }
+
+  },
+  &quot;definitions&quot;: {
+    &quot;urls&quot;: {
+      &quot;description&quot;: &quot;List of urls&quot;,
       &quot;type&quot;: &quot;array&quot;,
       &quot;items&quot;: {
-        &quot;type&quot;: &quot;string&quot;,
-        &quot;format&quot;: &quot;uri&quot;
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;title&quot;: {
+            &quot;description&quot;: &quot;Url titles&quot;,
+            &quot;$ref&quot;: &quot;#/definitions/descriptions&quot;
+          },
+          &quot;url&quot;: {
+            &quot;description&quot;: &quot;Url&quot;,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;format&quot;: &quot;uri&quot;
+          }
+        }
       }
     },
-    &quot;media&quot;: {
-      &quot;description&quot;: &quot;Urls of other media&quot;,
+    &quot;descriptions&quot;: {
+      &quot;description&quot;: &quot;List of descriptions&quot;,
       &quot;type&quot;: &quot;array&quot;,
       &quot;items&quot;: {
-        &quot;type&quot;: &quot;string&quot;,
-        &quot;format&quot;: &quot;uri&quot;
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+          &quot;language&quot;: {
+            &quot;description&quot;: &quot;ISO 639-1 language code&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;text&quot;: {
+            &quot;default&quot;: &quot;Description text&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        }
+      }
+    },
+    &quot;size&quot;: {
+      &quot;description&quot;: &quot;Size definition&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;value&quot;: {
+          &quot;description&quot;: &quot;Size value&quot;,
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;unit&quot;: {
+          &quot;default&quot;: &quot;Size unit&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
       }
     },
     &quot;price&quot;: {
-      &quot;description&quot;: &quot;Property type&quot;,
-      &quot;type&quot;: &quot;number&quot;
-    },
-    &quot;currency&quot;: {
-      &quot;description&quot;: &quot;ISO 4217 price currency code&quot;,
-      &quot;type&quot;: &quot;string&quot;
-    },
-    &quot;description&quot;: {
-      &quot;description&quot;: &quot;Property description&quot;,
-      &quot;type&quot;: &quot;string&quot;
-    },
-    &quot;language&quot;: {
-      &quot;description&quot;: &quot;ISO 639-1 language code for description&quot;,
-      &quot;type&quot;: &quot;string&quot;
+      &quot;description&quot;: &quot;Price&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;value&quot;: {
+          &quot;description&quot;: &quot;Price value&quot;,
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;currency&quot;: {
+          &quot;description&quot;: &quot;ISO 4217 or cryptocurrency code&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;formated&quot;: {
+          &quot;description&quot;: &quot;Price formated&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
     }
   }
 }
+
 </code></pre>
 <h2 id="license">License</h2>
 <p>MIT</p>
