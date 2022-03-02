@@ -17,11 +17,11 @@ This document defines a data structure for the publication of real estate advert
 ## Version history
 - 1.0
 
-## Definition
+## Format
 
 The schema has been defined using the [JSON](https://en.wikipedia.org/wiki/JSON) interchange format and `camelCase` convention.
 
-All properties are optional, although it is highly recommended to fill in:
+All properties are optional although it is highly recommended to fill in:
 - version
 - guid
 - country
