@@ -122,17 +122,17 @@
       "description": "ISO 3166 country code",
       "type": "string"
     },
-    "constructionSize": {
+    "livingArea": {
       "$ref": "#/definitions/size",
-      "description": "Size of constuction"
+      "description": "Size of living area"
     },
     "constructionYear": {
       "description": "Year of construction",
       "type": "integer"
     },
-    "landSize": {
+    "landArea": {
       "$ref": "#/definitions/size",
-      "description": "Land size"
+      "description": "Size of land"
     },
     "floors": {
       "description": "Number of floors",
