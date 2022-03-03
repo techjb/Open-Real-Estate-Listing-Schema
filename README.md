@@ -30,6 +30,7 @@ All properties are optional although it is highly recommended to fill in:
 ## Privacy
 Contact information can be hidden by filling in the `contactUrl` property only.
 
+
 ## Schema
 Version 1.0
 
