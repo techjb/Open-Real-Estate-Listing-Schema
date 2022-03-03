@@ -13,7 +13,6 @@ This document defines a data structure for the publication of real estate advert
 - Facilitate the interoperability of real estate listing data.
 - Define a data structure for a decentralised global real estate marketplace.
 
-
 ## Version history
 - 1.0
 
