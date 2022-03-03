@@ -122,6 +122,31 @@
       "description": "ISO 3166 country code",
       "type": "string"
     },
+    "geography": {
+      "description": "Geography of the parcel or building in GeoJSON format",
+      "type": "object"
+    },
+    "localIds": {
+      "description": "Property identifiers in public entities (land registry, cadastre, etc)",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "description": "Name of public entity",
+            "type": "string"
+          },
+          "Ids": {
+            "description": "List of ids",
+            "type": "array",
+            "items": {
+              "description": "Id in public entity",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "livingArea": {
       "$ref": "#/definitions/size",
       "description": "Size of living area"
