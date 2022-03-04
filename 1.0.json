@@ -81,22 +81,59 @@
       "description": "Data source name",
       "type": "string"
     },
-    "contactName": {
-      "description": "Contact name",
-      "type": "string"
+    "contact": {
+      "description": "Listing contact information",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Contact name",
+          "type": "string"
+        },
+        "phone": {
+          "description": "Contact phone",
+          "type": "string"
+        },
+        "email": {
+          "description": "Contact email",
+          "type": "string"
+        },
+        "url": {
+          "description": "Contact url",
+          "type": "string",
+          "format": "uri"
+        }
+      }
     },
-    "contactPhone": {
-      "description": "Contact phone",
-      "type": "string"
-    },
-    "contactEmail": {
-      "description": "Contact email",
-      "type": "string"
-    },
-    "contactUrl": {
-      "description": "Contact url",
-      "type": "string",
-      "format": "uri"
+    "address": {
+      "description": "Property address information",
+      "type": "object",
+      "properties": {
+        "formated": {
+          "description": "Formated address",
+          "type": "string"
+        },
+        "street": {
+          "description": "Street name, house number, floor, appartment",
+          "type": "string"
+        },
+        "postalCode": {
+          "description": "Zip / Postal code",
+          "type": "string"
+        },
+        "city": {
+          "description": "City / Town / Village name",
+          "type": "string"
+        },       
+        "province": {
+          "description": "State / Province / County / Region name",
+          "type": "string"
+        },
+        "country": {
+          "description": "ISO 3166 country code",
+          "type": "string"
+        }
+      }
+
     },
     "latitude": {
       "description": "Property latitude in decimal degrees",
@@ -105,22 +142,6 @@
     "longitude": {
       "description": "Property longitude in decimal degrees",
       "type": "number"
-    },
-    "address": {
-      "description": "Formated address",
-      "type": "string"
-    },
-    "postalCode": {
-      "description": "Postal code",
-      "type": "string"
-    },
-    "state": {
-      "description": "State code",
-      "type": "string"
-    },
-    "country": {
-      "description": "ISO 3166 country code",
-      "type": "string"
     },
     "geography": {
       "description": "Geography of the parcel or building in GeoJSON format",
