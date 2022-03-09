@@ -26,7 +26,7 @@
     "propertyType": {
       "description": "Type of property",
       "type": "string",
-      "enum": [ "home", "room", "premise", "garage", "storage", "wharehouse", "office", "land", "building" ]
+      "enum": [ "home", "room", "premise", "garage", "storage", "office", "land", "building" ]
     },
     "operation": {
       "description": "Type of operation",
