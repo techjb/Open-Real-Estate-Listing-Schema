@@ -26,12 +26,48 @@
     "propertyType": {
       "description": "Type of property",
       "type": "string",
-      "enum": [ "home", "room", "premise", "garage", "storage", "office", "land", "building" ]
+      "enum": [
+        "home",
+        "room",
+        "premise",
+        "garage",
+        "storage",
+        "office",
+        "land",
+        "building",
+        "industrial"
+      ]
+    },
+    "propertySubType": {
+      "description": "Subtype of property",
+      "type": "string",
+      "enum": [
+        "house",
+        "flat",
+        "appartment",
+        "penthouse",
+        "bungalow",
+        "duplex",
+        "detached",
+        "semi_detathed",
+        "terraced",
+        "developed",
+        "buildable",
+        "non_building"
+      ]
     },
     "operation": {
       "description": "Type of operation",
       "type": "string",
-      "enum": [ "buy", "sell", "rent", "share", "auction" ]
+      "enum": [
+        "buy",
+        "sell",
+        "rent",
+        "holiday_rent",
+        "share",
+        "auction",
+        "transfer"
+      ]
     },
     "media": {
       "description": "Media resources urls",
@@ -59,14 +95,6 @@
     "price": {
       "$ref": "#/definitions/price",
       "description": "Property price"
-    },
-    "priceMin": {
-      "$ref": "#/definitions/price",
-      "description": "Minimum demand price"
-    },
-    "priceMax": {
-      "$ref": "#/definitions/price",
-      "description": "Maximum demand price"
     },
     "descriptions": {
       "$ref": "#/definitions/descriptions",
@@ -123,7 +151,7 @@
         "city": {
           "description": "City / Town / Village name",
           "type": "string"
-        },       
+        },
         "province": {
           "description": "State / Province / County / Region name",
           "type": "string"
@@ -133,7 +161,6 @@
           "type": "string"
         }
       }
-
     },
     "latitude": {
       "description": "Property latitude in decimal degrees",
@@ -148,7 +175,7 @@
       "type": "object"
     },
     "localIds": {
-      "description": "Property identifiers in public entities (land registry, cadastre, etc)",
+      "description": "Property identifiers in public entities (land registry, cadastre, etc.)",
       "type": "array",
       "items": {
         "type": "object",
@@ -168,20 +195,34 @@
         }
       }
     },
-    "livingArea": {
+    "propertySize": {
       "$ref": "#/definitions/size",
-      "description": "Size of living area"
+      "description": "Size of property"
+    },
+    "landSize": {
+      "$ref": "#/definitions/size",
+      "description": "Size of land"
     },
     "constructionYear": {
       "description": "Year of construction",
       "type": "integer"
     },
-    "landArea": {
-      "$ref": "#/definitions/size",
-      "description": "Size of land"
+    "constructionStatus": {
+      "description": "Status of construction",
+      "type": "string",
+      "enum": [
+        "new",
+        "good",
+        "for_renovation",
+        "refurbished"
+      ]
     },
     "floors": {
-      "description": "Number of floors",
+      "description": "Number of building floors",
+      "type": "integer"
+    },
+    "floor": {
+      "description": "Property floor number",
       "type": "integer"
     },
     "rooms": {
@@ -191,6 +232,34 @@
     "bathrooms": {
       "description": "Number of bathrooms",
       "type": "integer"
+    },
+    "parkings": {
+      "description": "Number of garaje parkings",
+      "type": "integer"
+    },
+    "features": {
+      "description": "Property features",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "terrace",
+          "garden",
+          "garaje",
+          "motorbike_garage",
+          "parking",
+          "pool",
+          "lift",
+          "disabled_access",
+          "box_room",
+          "furnished",
+          "non_furnished",
+          "heating",
+          "air_conditioning",
+          "pets_allowed",
+          "security_systems"
+        ]
+      }
     }
   },
   "definitions": {
