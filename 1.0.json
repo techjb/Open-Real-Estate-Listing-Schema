@@ -109,6 +109,10 @@
       "description": "Data source name",
       "type": "string"
     },
+    "dataSourceGuid": {
+      "description": "Data source Globally Unique Identifier",
+      "type": "string"
+    },
     "contact": {
       "description": "Listing contact information",
       "type": "object",
