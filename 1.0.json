@@ -2,267 +2,282 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "$id": "https://raw.githubusercontent.com/techjb/Open-Real-Estate-Listing-Schema/master/1.0.schema.json",
   "title": "Open Real Estate Listing Schema",
-  "description": "An open schema for the publication of real estate advertisements",
+  "description": "Open schema for publishing real estate advertisements",
   "type": "object",
   "properties": {
     "version": {
-      "description": "Version number",
+      "description": "Schema version number",
       "type": "number"
     },
-    "guid": {
-      "description": "Globally Unique Identifier",
-      "type": "string"
-    },
-    "listingDate": {
-      "description": "Date of listing",
+    "updated": {
+      "description": "Date of list update",
       "type": "string",
       "format": "date-time"
     },
-    "unlistingDate": {
-      "description": "Date of unlisting",
-      "type": "string",
-      "format": "date-time"
-    },
-    "propertyType": {
-      "description": "Type of property",
-      "type": "string",
-      "enum": [
-        "home",
-        "room",
-        "premise",
-        "garage",
-        "storage",
-        "office",
-        "land",
-        "building",
-        "industrial"
-      ]
-    },
-    "propertySubType": {
-      "description": "Subtype of property",
-      "type": "string",
-      "enum": [
-        "house",
-        "flat",
-        "appartment",
-        "penthouse",
-        "bungalow",
-        "duplex",
-        "detached",
-        "semi_detathed",
-        "terraced",
-        "developed",
-        "buildable",
-        "non_building"
-      ]
-    },
-    "operation": {
-      "description": "Type of operation",
-      "type": "string",
-      "enum": [
-        "buy",
-        "sell",
-        "rent",
-        "holiday_rent",
-        "share",
-        "auction",
-        "transfer"
-      ]
-    },
-    "media": {
-      "description": "Media resources urls",
+    "advertisements": {
+      "description": "List of advertisements",
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "type": {
-            "description": "Type of media",
-            "type": "string",
-            "enum": [ "image", "thumbnail", "video", "audio", "floorplan", "text", "other" ]
-          },
-          "title": {
-            "description": "Title of the media",
-            "$ref": "#/definitions/descriptions"
-          },
-          "url": {
-            "description": "Url of media",
-            "type": "string",
-            "format": "uri"
-          }
-        }
-      }
-    },
-    "price": {
-      "$ref": "#/definitions/price",
-      "description": "Property price"
-    },
-    "descriptions": {
-      "$ref": "#/definitions/descriptions",
-      "description": "Property descriptions"
-    },
-    "url": {
-      "description": "Listing url",
-      "type": "string",
-      "format": "uri"
-    },
-    "dataSourceName": {
-      "description": "Data source name",
-      "type": "string"
-    },
-    "dataSourceGuid": {
-      "description": "Data source Globally Unique Identifier",
-      "type": "string"
-    },
-    "contact": {
-      "description": "Listing contact information",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Contact name",
-          "type": "string"
-        },
-        "phone": {
-          "description": "Contact phone",
-          "type": "string"
-        },
-        "email": {
-          "description": "Contact email",
-          "type": "string"
-        },
-        "url": {
-          "description": "Contact url",
-          "type": "string",
-          "format": "uri"
-        }
-      }
-    },
-    "address": {
-      "description": "Property address information",
-      "type": "object",
-      "properties": {
-        "formated": {
-          "description": "Formated address",
-          "type": "string"
-        },
-        "street": {
-          "description": "Street name, house number, floor, appartment",
-          "type": "string"
-        },
-        "postalCode": {
-          "description": "Zip / Postal code",
-          "type": "string"
-        },
-        "city": {
-          "description": "City / Town / Village name",
-          "type": "string"
-        },
-        "province": {
-          "description": "State / Province / County / Region name",
-          "type": "string"
-        },
-        "country": {
-          "description": "ISO 3166 country code",
-          "type": "string"
-        }
-      }
-    },
-    "latitude": {
-      "description": "Property latitude in decimal degrees",
-      "type": "number"
-    },
-    "longitude": {
-      "description": "Property longitude in decimal degrees",
-      "type": "number"
-    },
-    "geography": {
-      "description": "Geography of the parcel or building in GeoJSON format",
-      "type": "object"
-    },
-    "localIds": {
-      "description": "Property identifiers in public entities (land registry, cadastre, etc.)",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "Name": {
-            "description": "Name of public entity",
+          "guid": {
+            "description": "Globally Unique Identifier",
             "type": "string"
           },
-          "Ids": {
-            "description": "List of ids",
+          "listingDate": {
+            "description": "Date of listing",
+            "type": "string",
+            "format": "date-time"
+          },
+          "unlistingDate": {
+            "description": "Date of unlisting",
+            "type": "string",
+            "format": "date-time"
+          },
+          "propertyType": {
+            "description": "Type of property",
+            "type": "string",
+            "enum": [
+              "home",
+              "room",
+              "premise",
+              "garage",
+              "storage",
+              "office",
+              "land",
+              "building",
+              "industrial"
+            ]
+          },
+          "propertySubType": {
+            "description": "Subtype of property",
+            "type": "string",
+            "enum": [
+              "house",
+              "flat",
+              "appartment",
+              "penthouse",
+              "bungalow",
+              "duplex",
+              "detached",
+              "semi_detathed",
+              "terraced",
+              "developed",
+              "buildable",
+              "non_building"
+            ]
+          },
+          "operation": {
+            "description": "Type of operation",
+            "type": "string",
+            "enum": [
+              "buy",
+              "sell",
+              "rent",
+              "holiday_rent",
+              "share",
+              "auction",
+              "transfer"
+            ]
+          },
+          "media": {
+            "description": "Media resources urls",
             "type": "array",
             "items": {
-              "description": "Id in public entity",
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "Type of media",
+                  "type": "string",
+                  "enum": [ "image", "thumbnail", "video", "audio", "floorplan", "text", "other" ]
+                },
+                "title": {
+                  "description": "Title of the media",
+                  "$ref": "#/definitions/descriptions"
+                },
+                "url": {
+                  "description": "Url of media",
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            }
+          },
+          "price": {
+            "$ref": "#/definitions/price",
+            "description": "Property price"
+          },
+          "descriptions": {
+            "$ref": "#/definitions/descriptions",
+            "description": "Property descriptions"
+          },
+          "url": {
+            "description": "Listing url",
+            "type": "string",
+            "format": "uri"
+          },
+          "dataSourceName": {
+            "description": "Data source name",
+            "type": "string"
+          },
+          "dataSourceGuid": {
+            "description": "Data source Globally Unique Identifier",
+            "type": "string"
+          },
+          "contact": {
+            "description": "Listing contact information",
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Contact name",
+                "type": "string"
+              },
+              "phone": {
+                "description": "Contact phone",
+                "type": "string"
+              },
+              "email": {
+                "description": "Contact email",
+                "type": "string"
+              },
+              "url": {
+                "description": "Contact url",
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "address": {
+            "description": "Property address information",
+            "type": "object",
+            "properties": {
+              "formated": {
+                "description": "Formated address",
+                "type": "string"
+              },
+              "street": {
+                "description": "Street name, house number, floor, appartment",
+                "type": "string"
+              },
+              "postalCode": {
+                "description": "Zip / Postal code",
+                "type": "string"
+              },
+              "city": {
+                "description": "City / Town / Village name",
+                "type": "string"
+              },
+              "province": {
+                "description": "State / Province / County / Region name",
+                "type": "string"
+              },
+              "country": {
+                "description": "ISO 3166 country code",
+                "type": "string"
+              }
+            }
+          },
+          "latitude": {
+            "description": "Property latitude in decimal degrees",
+            "type": "number"
+          },
+          "longitude": {
+            "description": "Property longitude in decimal degrees",
+            "type": "number"
+          },
+          "geography": {
+            "description": "Geography of the parcel or building in GeoJSON format",
+            "type": "object"
+          },
+          "localIds": {
+            "description": "Property identifiers in public entities (land registry, cadastre, etc.)",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "description": "Name of public entity",
+                  "type": "string"
+                },
+                "Ids": {
+                  "description": "List of ids",
+                  "type": "array",
+                  "items": {
+                    "description": "Id in public entity",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "propertySize": {
+            "$ref": "#/definitions/size",
+            "description": "Size of property"
+          },
+          "landSize": {
+            "$ref": "#/definitions/size",
+            "description": "Size of land"
+          },
+          "constructionYear": {
+            "description": "Year of construction",
+            "type": "integer"
+          },
+          "constructionStatus": {
+            "description": "Status of construction",
+            "type": "string",
+            "enum": [
+              "new",
+              "good",
+              "for_renovation",
+              "refurbished"
+            ]
+          },
+          "floors": {
+            "description": "Number of building floors",
+            "type": "integer"
+          },
+          "floor": {
+            "description": "Property floor number",
+            "type": "integer"
+          },
+          "rooms": {
+            "description": "Number of rooms",
+            "type": "integer"
+          },
+          "bathrooms": {
+            "description": "Number of bathrooms",
+            "type": "integer"
+          },
+          "parkings": {
+            "description": "Number of garaje parkings",
+            "type": "integer"
+          },
+          "features": {
+            "description": "Property features",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "terrace",
+                "garden",
+                "garaje",
+                "motorbike_garage",
+                "parking",
+                "pool",
+                "lift",
+                "disabled_access",
+                "box_room",
+                "furnished",
+                "non_furnished",
+                "heating",
+                "air_conditioning",
+                "pets_allowed",
+                "security_systems"
+              ]
             }
           }
+
         }
-      }
-    },
-    "propertySize": {
-      "$ref": "#/definitions/size",
-      "description": "Size of property"
-    },
-    "landSize": {
-      "$ref": "#/definitions/size",
-      "description": "Size of land"
-    },
-    "constructionYear": {
-      "description": "Year of construction",
-      "type": "integer"
-    },
-    "constructionStatus": {
-      "description": "Status of construction",
-      "type": "string",
-      "enum": [
-        "new",
-        "good",
-        "for_renovation",
-        "refurbished"
-      ]
-    },
-    "floors": {
-      "description": "Number of building floors",
-      "type": "integer"
-    },
-    "floor": {
-      "description": "Property floor number",
-      "type": "integer"
-    },
-    "rooms": {
-      "description": "Number of rooms",
-      "type": "integer"
-    },
-    "bathrooms": {
-      "description": "Number of bathrooms",
-      "type": "integer"
-    },
-    "parkings": {
-      "description": "Number of garaje parkings",
-      "type": "integer"
-    },
-    "features": {
-      "description": "Property features",
-      "type": "array",
-      "items": {
-        "type": "string",
-        "enum": [
-          "terrace",
-          "garden",
-          "garaje",
-          "motorbike_garage",
-          "parking",
-          "pool",
-          "lift",
-          "disabled_access",
-          "box_room",
-          "furnished",
-          "non_furnished",
-          "heating",
-          "air_conditioning",
-          "pets_allowed",
-          "security_systems"
-        ]
       }
     }
   },
