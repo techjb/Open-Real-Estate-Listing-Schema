@@ -111,11 +111,6 @@
             "$ref": "#/definitions/descriptions",
             "description": "Property descriptions"
           },
-          "url": {
-            "description": "Listing url",
-            "type": "string",
-            "format": "uri"
-          },
           "dataSourceName": {
             "description": "Data source name",
             "type": "string"
@@ -123,6 +118,11 @@
           "dataSourceGuid": {
             "description": "Data source Globally Unique Identifier",
             "type": "string"
+          },
+          "dataSourceUrl": {
+            "description": "Data source url",
+            "type": "string",
+            "format": "uri"
           },
           "contact": {
             "description": "Listing contact information",
