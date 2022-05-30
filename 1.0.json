@@ -260,7 +260,7 @@
               "enum": [
                 "terrace",
                 "garden",
-                "garaje",
+                "garage",
                 "motorbike_garage",
                 "parking",
                 "pool",
@@ -276,7 +276,6 @@
               ]
             }
           }
-
         }
       }
     }
