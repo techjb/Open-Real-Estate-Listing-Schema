@@ -196,7 +196,7 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "description": "Name of public entity",
+                  "description": "Name of identifier, for example: Cadastral Reference, Land Registry Number.",
                   "type": "string"
                 },
                 "ids": {
