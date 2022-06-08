@@ -238,7 +238,7 @@
           },
           "floor": {
             "description": "Property floor number",
-            "type": "integer"
+            "type": "string"
           },
           "rooms": {
             "description": "Number of rooms",
