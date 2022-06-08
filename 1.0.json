@@ -195,11 +195,11 @@
             "items": {
               "type": "object",
               "properties": {
-                "Name": {
+                "name": {
                   "description": "Name of public entity",
                   "type": "string"
                 },
-                "Ids": {
+                "ids": {
                   "description": "List of ids",
                   "type": "array",
                   "items": {
