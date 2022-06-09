@@ -9,6 +9,11 @@
       "description": "Schema version number",
       "type": "number"
     },
+    "schemaUrl": {
+      "description": "Url of the schema describing the fields",
+      "type": "string",
+      "format": "uri"
+    },
     "updated": {
       "description": "Date of list update",
       "type": "string",
