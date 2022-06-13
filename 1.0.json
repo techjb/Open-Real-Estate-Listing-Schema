@@ -124,6 +124,11 @@
             "description": "Data source Globally Unique Identifier",
             "type": "string"
           },
+          "dataSourceUpdate": {
+            "description": "Date of the last update from data source",
+            "type": "string",
+            "format": "date-time"
+          },
           "dataSourceUrl": {
             "description": "Data source url",
             "type": "string",
