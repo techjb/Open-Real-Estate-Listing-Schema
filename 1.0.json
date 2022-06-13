@@ -164,6 +164,10 @@
                 "description": "Street name, house number, floor, appartment",
                 "type": "string"
               },
+              "district": {
+                "description": "District name",
+                "type": "string"
+              },
               "postalCode": {
                 "description": "Zip / Postal code",
                 "type": "string"
