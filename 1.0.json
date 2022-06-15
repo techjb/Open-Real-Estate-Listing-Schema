@@ -10,7 +10,7 @@
       "type": "number"
     },
     "schemaUrl": {
-      "description": "Url of the schema describing the fields",
+      "description": "Url of the schema",
       "type": "string",
       "format": "uri"
     },
@@ -143,11 +143,11 @@
                 "type": "string"
               },
               "phone": {
-                "description": "Contact phone",
+                "description": "Contact phone number",
                 "type": "string"
               },
               "email": {
-                "description": "Contact email",
+                "description": "Contact email address",
                 "type": "string"
               },
               "url": {
@@ -182,11 +182,11 @@
                 "type": "string"
               },
               "city": {
-                "description": "City / Town / Village name",
+                "description": "City / Town / Village / Locality",
                 "type": "string"
               },
               "province": {
-                "description": "State / Province / County / Region name",
+                "description": "State / Province / County / Region",
                 "type": "string"
               },
               "country": {
