@@ -154,6 +154,10 @@
                 "description": "Contact url",
                 "type": "string",
                 "format": "uri"
+              },
+              "other": {
+                "description": "Contact other (Skype, Twitter, Facebook, etc.)",
+                "type": "string"
               }
             }
           },
