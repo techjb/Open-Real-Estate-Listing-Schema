@@ -58,6 +58,7 @@
             "description": "Subtype of property",
             "type": "string",
             "enum": [
+              // for propertyType:home 
               "flat",
               "appartment",
               "penthouse",
@@ -66,6 +67,7 @@
               "detached",
               "semi_detached",
               "terraced",
+              // for propertyType: land
               "developed",
               "buildable",
               "non_building"
