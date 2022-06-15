@@ -58,7 +58,6 @@
             "description": "Subtype of property",
             "type": "string",
             "enum": [
-              "house",
               "flat",
               "appartment",
               "penthouse",
