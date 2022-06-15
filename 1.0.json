@@ -5,7 +5,7 @@
   "description": "Open schema for publishing real estate advertisements",
   "type": "object",
   "properties": {
-    "version": {
+    "schemaVersion": {
       "description": "Schema version number",
       "type": "number"
     },
